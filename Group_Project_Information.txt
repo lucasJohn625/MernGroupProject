@@ -15,5 +15,5 @@ Group Members and Role:
 •	Ahmed Wehelie - front end pages for displaying and editing Blog posts
 •	Rey Westover - front end pages for displaying and editing the Profile 
 
-Wireframe: Available in the GitHub repo
+Wireframe: https://github.com/lucasJohn625/MernGroupProject/blob/main/Project_Wireframe.png
 GitHub repo link: https://github.com/lucasJohn625/MernGroupProject
