@@ -16,4 +16,4 @@ Group Members and Role:
 •	Rey Westover - front end pages for displaying and editing the Profile 
 
 Wireframe: Available in the GitHub repo
-GitHub repo link:
+GitHub repo link: https://github.com/lucasJohn625/MernGroupProject
