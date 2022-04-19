@@ -1,0 +1,19 @@
+Group Project Name: (TBD)
+
+Project Description: Our project is a restaurant review app, which allows the user to create a blog where they can leave restaurant reviews
+
+Minimum Viable Product Features: 
+•	The home page retrieves all blog posts from the database and displays a list of blog post titles as links to view more information, the home page also  includes a link to view the profile page
+•	The view one blog page displays the blog post content from the database, and provides options to delete or update the blog, or return to the home page
+•	The profile page displays profile information from the database, such as their favorite type of food and favorite restaurant, and provides options to edit the profile information
+    
+Bonus features (product backlog): TBD
+
+Group Members and Role: 
+•	Brett Currier - back end including controller, model, and route for Blog/Profile;
+•	Lucas Miller - back end including controller, model, and route for Blog/Profile
+•	Ahmed Wehelie - front end pages for displaying and editing Blog posts
+•	Rey Westover - front end pages for displaying and editing the Profile 
+
+Wireframe: Available in the GitHub repo
+GitHub repo link:
