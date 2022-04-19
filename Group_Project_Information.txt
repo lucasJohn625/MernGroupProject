@@ -1,4 +1,4 @@
-Group Project Name: (TBD)
+Group Project Name: Too Much Salt
 
 Project Description: Our project is a restaurant review app, which allows the user to create a blog where they can leave restaurant reviews
 
