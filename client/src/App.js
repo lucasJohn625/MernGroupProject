@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from "./components/Home";
 import NewBlog from "./components/NewBlog";
 import EditBlog from "./components/EditBlog";
+import OneBlog from "./components/OneBlog";
 
 function App() {
     return (
@@ -12,7 +13,8 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/new" element={<NewBlog/>}/>
-                    <Route path="/edit" element={<EditBlog/>}/>
+                    <Route path="/edit/:id" element={<EditBlog/>}/>
+                    <Route path="/blog/:id" element={<OneBlog/>} />
                 </Routes>
             </div>
         </BrowserRouter>

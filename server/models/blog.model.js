@@ -3,7 +3,8 @@ const mongoose=require('mongoose')
 const BlogSchema=new mongoose.Schema({
     blogAuthor:{
         type:String,
-        minLength:[5,"Must enter your name!"]
+        // required:[true, "Author's name required"] ,
+        minLength:[5,"Must be at least 5 characters!"]
     },
     blogTitle:{
         type:String,

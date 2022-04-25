@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const NewBlog = (props)=>{
 
     const [newBlog, setNewBlog] = useState({
+        blogAuthor: "",
         blogTitle: "",
-        blogContent: ""
+        text: "",
+        date: ""
     })
 
     const [errors, setErrors] = useState([])
@@ -16,13 +18,13 @@ const NewBlog = (props)=>{
 
     const submitHandler = (e) =>{
         e.preventDefault()
-        axios.post('http://localhost:8000/BLOG', newBlog)
+        axios.post('http://localhost:8000/api/blogs', newBlog)
         .then((res)=>{
             console.log(res.data)
             navigate("/")
         })
         .catch((err)=>{
-            console.log(err.response.data)
+            console.log(err.response.data.errors)
             setErrors(err.response.data.errors)
         })
     }    
@@ -39,7 +41,22 @@ const NewBlog = (props)=>{
             <div>
                 <h1>New Blog</h1>
             </div>
-            <form className="w-50 mx-auto">
+            <form className="w-50 mx-auto" onSubmit={submitHandler}>
+                <div className="mb-3">
+                    <label className="form-label">Author</label>
+                    <input 
+                        type="text" 
+                        value={newBlog.blogAuthor}
+                        onChange={inputHandler}
+                        className="form-control"
+                        name="blogAuthor"
+                    />
+                    {
+                        errors.blogAuthor?
+                        <p className="text-danger">{errors.blogAuthor.message}</p>
+                        :null
+                    }
+                </div>
                 <div className="mb-3">
                     <label className="form-label">Title</label>
                     <input 
@@ -47,6 +64,7 @@ const NewBlog = (props)=>{
                         value={newBlog.blogTitle}
                         onChange={inputHandler}
                         className="form-control"
+                        name="blogTitle"
                     />
                     {
                         errors.blogTitle?
@@ -56,14 +74,33 @@ const NewBlog = (props)=>{
                 </div>
                 <div className="row mb-3">
                     <label className="form-label">Review:</label>
-                        <textarea rows={5} value={newBlog.blogContent} className="form-control" />
+                        <textarea 
+                            rows={5} 
+                            value={newBlog.text} 
+                            className="form-control" 
+                            name="text"
+                            onChange={inputHandler}
+                            />
                         {
-                            errors.blogContent?
-                            <p className="text-danger">{errors.blogContent.message}</p>
+                            errors.text?
+                            <p className="text-danger">{errors.text.message}</p>
                             :null
                         }
                 </div>
-                <input type="submit" value="Update" />
+                <div className="row mb-3">
+                    <label className="form-label">Date:</label>
+                    <input 
+                        type="date" 
+                        name="date" 
+                        className="form-control"
+                        onChange={inputHandler}
+                        />
+                    {
+                        errors.date?
+                        <p className="text-danger">{errors.date.message}</p>:null
+                    }
+                </div>
+                <input type="submit" value="Submit" />
             </form>
         </div>
     );
