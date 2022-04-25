@@ -16,7 +16,7 @@ const BlogSchema=new mongoose.Schema({
 
     },
     date:{
-        type:Date,
+        type:String,
         required:[true, "Please enter a date"]
     }
 },{timestamps:true})
