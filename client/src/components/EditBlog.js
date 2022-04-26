@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams} from "react-router-dom";
+import { useNavigate, useParams, Link} from "react-router-dom";
 import axios from "axios";
 
 const EditBlog = (props) => {
@@ -51,31 +51,37 @@ const EditBlog = (props) => {
     return (
         <div className="container mx-auto my-3">
             <div>
-                <h1>Edit Blog</h1>
+                <h1>Edit Review</h1>
+            </div>
+            <div className="nav-bar">
+                <Link to={`/`}>
+                    <p className="nav-underline">Home</p>
+                </Link>
             </div>
             <form className="w-50 mx-auto" onSubmit={updateHandler}>
-                <div className="mb-3">
-                    <label className="form-label">Author</label>
+                <div className="form-input-div">
+                    <label className="">Author</label>
                     <input
                         type="text"
                         value={editBlog.blogAuthor}
                         onChange={inputHandler}
-                        className="form-control"
+                        className=""
                         name="blogAuthor"
                     />
-                    {errors.blogTitle ? (
+                    {errors.blogAuthor ? (
                         <p className="text-danger">
                             {errors.blogAuthor.message}
                         </p>
                     ) : null}
                 </div>
-                <div className="mb-3">
-                    <label className="form-label">Title</label>
+                <br />
+                <div className="form-input-div ">
+                    <label className="">Title</label>
                     <input
                         type="text"
                         value={editBlog.blogTitle}
                         onChange={inputHandler}
-                        className="form-control"
+                        className=""
                         name="blogTitle"
                     />
                     {errors.blogTitle ? (
@@ -84,29 +90,39 @@ const EditBlog = (props) => {
                         </p>
                     ) : null}
                 </div>
-                <div className="row mb-3">
-                    <label className="form-label">Review:</label>
+                <br />
+                <div className="form-descripton-div ">
+                    <label className="">Review:</label>
                     <textarea
                         rows={5}
                         value={editBlog.text}
-                        className="form-control"
+                        className=""
                         name="text"
                         onChange={inputHandler}
                     />
-                    {errors.blogContent ? (
+                    {errors.text ? (
                         <p className="text-danger">{errors.text.message}</p>
                     ) : null}
                 </div>
-                <div className="row mb-3">
-                    <label className="form-label">Date:</label>
+                <br />
+                <div className="form-input-div ">
+                    <label className="">Date:</label>
                     <input
                         type="date"
                         name="date"
-                        className="form-control"
+                        className=""
                         onChange={inputHandler}
                     />
+                    {errors.date ? (
+                        <p className="text-danger">{errors.date.message}</p>
+                    ) : null}
                 </div>
-                <input type="submit" value="Update" />
+                <br />
+                <input
+                    type="submit"
+                    value="Submit"
+                    className="profile-add-btn"
+                />
             </form>
         </div>
     );

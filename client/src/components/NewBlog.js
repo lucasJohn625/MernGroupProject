@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 const NewBlog = (props)=>{
@@ -38,69 +38,79 @@ const NewBlog = (props)=>{
 
     return (
         <div className="container mx-auto my-3">
+            <div className="nav-bar">
+                <Link to={`/`}>
+                    <p className="nav-underline">Home</p>
+                </Link>
+            </div>
             <div>
-                <h1>New Blog</h1>
+                <h1>New Review</h1>
             </div>
             <form className="w-50 mx-auto" onSubmit={submitHandler}>
-                <div className="mb-3">
-                    <label className="form-label">Author</label>
-                    <input 
-                        type="text" 
+                <div className="form-input-div">
+                    <label className="">Author</label>
+                    <input
+                        type="text"
                         value={newBlog.blogAuthor}
                         onChange={inputHandler}
-                        className="form-control"
+                        className=""
                         name="blogAuthor"
                     />
-                    {
-                        errors.blogAuthor?
-                        <p className="text-danger">{errors.blogAuthor.message}</p>
-                        :null
-                    }
+                    {errors.blogAuthor ? (
+                        <p className="text-danger">
+                            {errors.blogAuthor.message}
+                        </p>
+                    ) : null}
                 </div>
-                <div className="mb-3">
-                    <label className="form-label">Title</label>
-                    <input 
-                        type="text" 
+                <br />
+                <div className="form-input-div ">
+                    <label className="">Title</label>
+                    <input
+                        type="text"
                         value={newBlog.blogTitle}
                         onChange={inputHandler}
-                        className="form-control"
+                        className=""
                         name="blogTitle"
                     />
-                    {
-                        errors.blogTitle?
-                        <p className="text-danger">{errors.blogTitle.message}</p>
-                        :null
-                    }
+                    {errors.blogTitle ? (
+                        <p className="text-danger">
+                            {errors.blogTitle.message}
+                        </p>
+                    ) : null}
                 </div>
-                <div className="row mb-3">
-                    <label className="form-label">Review:</label>
-                        <textarea 
-                            rows={5} 
-                            value={newBlog.text} 
-                            className="form-control" 
-                            name="text"
-                            onChange={inputHandler}
-                            />
-                        {
-                            errors.text?
-                            <p className="text-danger">{errors.text.message}</p>
-                            :null
-                        }
-                </div>
-                <div className="row mb-3">
-                    <label className="form-label">Date:</label>
-                    <input 
-                        type="date" 
-                        name="date" 
-                        className="form-control"
+                <br />
+                <div className="form-descripton-div ">
+                    <label className="">Review:</label>
+                    <textarea
+                        rows={5}
+                        value={newBlog.text}
+                        className=""
+                        name="text"
                         onChange={inputHandler}
-                        />
-                    {
-                        errors.date?
-                        <p className="text-danger">{errors.date.message}</p>:null
-                    }
+                    />
+                    {errors.text ? (
+                        <p className="text-danger">{errors.text.message}</p>
+                    ) : null}
                 </div>
-                <input type="submit" value="Submit" />
+                <br />
+                <div className="form-input-div ">
+                    <label className="">Date:</label>
+                    <input
+                        type="date"
+                        name="date"
+                        className=""
+                        onChange={inputHandler}
+                    />
+                    {errors.date ? (
+                        <p className="text-danger">{errors.date.message}</p>
+                    ) : null}
+                </div>
+                <br />
+                <input
+                    type="submit"
+                    value="Submit"
+                    className="profile-add-btn"
+                />
             </form>
         </div>
     );

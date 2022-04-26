@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {useNavigate, useParams, Link} from 'react-router-dom'
+import { format } from "date-fns";
 
 const OneBlog = (props)=>{
 
@@ -29,27 +30,41 @@ const OneBlog = (props)=>{
     }
 
     return (
-        <div className='container'>
-            <div className='row'>
-                <div className='col-10 m-2 p-2'>
-                    {
-                        blog &&
-                        <div>
-                            <h1>{blog.blogTitle}</h1>
-                            <p><span className='fw-bold'>Review:</span> {blog.text}</p>
-                            <p><span className='fw-bold'>Posted by:</span> {blog.blogAuthor}</p>
-                        </div>    
-                    }
-                </div>
-                <div className='col-sm m-2 p-2'>
-                    <Link to={`/edit/${id}`}>
-                        <button className='btn btn-warning m-1 d-block '>Update</button>
-                    </Link>
-                    <Link to="/">
-                        <button className='btn btn-success m-1 d-block'>Home</button>
-                    </Link>
-                    <button className='btn btn-danger m-1 d-block' onClick={deleteBlog}>Delete</button>
+        <div className="container">
+            <div className="nav-bar">
+                <Link to={`/`}>
+                    <p className="nav-underline">Home</p>
+                </Link>
             </div>
+            <div className="d-flex justify-content-start">
+                <div className="col-10 m-2 p-2">
+                    {blog && (
+                        <div>
+                            <h1 className='profile-detailpage-title fw-bold'>{blog.blogTitle}</h1>
+                            <p className="fw-bold">Review:</p>
+                            <p className='profdetail-description-cont'>{blog.text}</p>
+                            <br/>
+                            <p className=" fw-bold">Posted by:</p>
+                            <p className='profdetail-description-cont'>{blog.blogAuthor}</p>
+                            <br/>
+                            <p className="fw-bold">Date visited:</p>
+                            <p className='profdetail-description-cont'>{blog.date}</p>
+                        </div>
+                    )}
+                </div>
+                <div className="col-sm m-2 p-2">
+                    <Link to={`/edit/${id}`}>
+                        <button className="profile-edit-btn d-block ">
+                            Update
+                        </button>
+                    </Link>
+                    <button
+                        className="remove-profile-btn my-4 d-block"
+                        onClick={deleteBlog}
+                    >
+                        Delete
+                    </button>
+                </div>
             </div>
         </div>
     );

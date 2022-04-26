@@ -22,14 +22,14 @@ const Home = (props)=>{
         <div className="container mx-auto my-3">
             <div className="row mb-4">
                 <div className="col-sm">
-                    <h1>Home</h1>
+                    <h1 className="fw-bold">Too Much Salt</h1>
                 </div>
                 <div className="col-sm">
                     <Link to='/new'>
-                        <button className="btn btn-primary m-2">Add New Blog</button>
+                        <button className=".profile-add-btn mx-2">Add New Review</button>
                     </Link>
                     <Link to='#'>
-                        <button className="btn btn-success">View Profile</button>
+                        <button className="profile-add-btn">View Profile</button>
                     </Link>
                 </div>
             </div>
@@ -37,7 +37,7 @@ const Home = (props)=>{
                 <table className="table table-striped w-100 mx-auto">
                     <thead className="thead-dark">
                         <tr>
-                            <th>Title</th>
+                            <th>Restaurant</th>
                             <th>Date Submitted</th>
                         </tr>
                     </thead>
