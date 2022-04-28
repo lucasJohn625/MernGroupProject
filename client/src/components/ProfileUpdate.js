@@ -17,7 +17,7 @@ const ProfileUpdate = (props) => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/api/profile/${id}`)
+            .get(`http://localhost:8000/api/profiles/${id}`)
             .then(res => {
                 console.log(res.data);
                 setProfileName(res.data.profileName);
@@ -37,7 +37,7 @@ const ProfileUpdate = (props) => {
             favRestaurants,
         };
         axios
-            .put(`http://localhost:8000/api/profile/${id}`, putUpdateData)
+            .put(`http://localhost:8000/api/profiles/${id}`, putUpdateData)
             .then(res => {
                 if(res.data.errors) {
                     setErrors(res.data.errors);

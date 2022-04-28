@@ -13,7 +13,9 @@ function App() {
     <BrowserRouter>
       <div className="App">
             <Routes>
-              <Route path="/profile/new" element={<ProfileForm/>} /> 
+              <Route path="/profile/new" element={<ProfileForm/>} />
+             
+              <Route path="/" element={<ProfileForm/>} />
               <Route path="/profile/:id" element={<ProfileDetail/>} />
               <Route path="/profile/edit/:id" element={<ProfileUpdate/>} />
             </Routes>
