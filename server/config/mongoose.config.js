@@ -1,10 +1,9 @@
-const mongoose = require("mongoose");
-const dbName = "blogs";
+const mongoose = require('mongoose');
+//This will create a database named "person" if one doesn't already exist (no need for mongo shell!):
+mongoose.connect("mongodb://localhost/crmdb", { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true,
+})
+    .then(() => console.log("Established a connection to the database"))
+    .catch(err => console.log("Something went wrong when connecting to the database", err));
 
-mongoose
-    .connect(`mongodb://localhost/${dbName}`, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
-    .then(() => console.log(`Connected to the ${dbName} database!`))
-    .catch((err) => console.log(err));
