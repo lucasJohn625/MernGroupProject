@@ -7,6 +7,7 @@ import {format,} from 'date-fns'
 const Home = (props)=>{
 
     const [blogList, setBlogList] = useState([]);
+    const [profile, setProfile] = useState([])
     
 
     useEffect(() => {
@@ -18,6 +19,15 @@ const Home = (props)=>{
         .catch((err)=>console.log(err))
     }, []);
 
+    useEffect(()=>{
+        axios.get("http://localhost:8000/api/profiles")
+        .then((res)=>{
+            console.log(res.data)
+            setProfile(res.data)
+        })
+        .catch((err)=>console.log(err))
+    }, [])
+
     return (
         <div className="container mx-auto my-3">
             <div className="row mb-4">
@@ -28,9 +38,21 @@ const Home = (props)=>{
                     <Link to='/new'>
                         <button className=".profile-add-btn mx-2">Add New Review</button>
                     </Link>
-                    <Link to='#'>
-                        <button className="profile-add-btn">View Profile</button>
-                    </Link>
+                    
+                    {
+                        profile.length>0?
+                            profile.map((profile, index)=>(
+                            <Link key={index} to={`/profile/${profile._id}`}>
+                                <button className="profile-add-btn">View Profile</button>
+                            </Link>
+
+                            ))
+                        
+                        :<Link to='/profile/new'>
+                            <button className="profile-add-btn">Create Profile</button>
+                        </Link>
+
+                    }
                 </div>
             </div>
             <div>

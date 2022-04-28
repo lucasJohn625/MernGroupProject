@@ -59,12 +59,12 @@ const ProfileDetail = (props) => {
 
             {/* FAV FOOD */}
             <p>Favorite Food:</p>
-            <p><span className="profdetail-description-cont">${oneProfile.favFoods}</span></p>
+            <p><span className="profdetail-description-cont">{oneProfile.favFoods}</span></p>
             <br/>
 
             {/* FAV RES */}
             <p>Favorite Restaurants:</p>
-            <p><span className="profdetail-description-cont">${oneProfile.favRestaurants}</span></p>
+            <p><span className="profdetail-description-cont">{oneProfile.favRestaurants}</span></p>
             <br/>
 
             {/* EDIT BTN */}
