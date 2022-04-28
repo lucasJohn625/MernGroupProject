@@ -7,9 +7,9 @@ const ProfileDetail = (props) => {
     const [oneProfile, setOneProfile] = useState({});
     const navigate = useNavigate();
 
-// 
+// what is this
     const getProfile = () => {
-        axios.get("http://localhost:8000/api/profile/" + props._id)
+        axios.get("http://localhost:8000/api/profiles/" + props._id)
         .then(response => {
             setOneProfile(response.data)
             console.log(response)
@@ -19,7 +19,7 @@ const ProfileDetail = (props) => {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8000/api/profile/${id}`)
+            .get(`http://localhost:8000/api/profiles/${id}`)
             .then((res) => {
                 console.log(res.data);
                 setOneProfile(res.data);
@@ -28,7 +28,7 @@ const ProfileDetail = (props) => {
     }, [id]);
 
     const deleteProfile = (_id) => {
-        axios.delete(`http://localhost:8000/api/profile/${_id}`)
+        axios.delete(`http://localhost:8000/api/profiles/${_id}`)
             .then(res => {
                 console.log(res)
                 navigate("/")

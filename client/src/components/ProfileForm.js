@@ -16,7 +16,7 @@ const ProfileForm = (props) => {
     const onSubmitHandler = e => {
         e.preventDefault();
         
-        axios.post('http://localhost:8000/api/profile/new', {
+        axios.post('http://localhost:8000/api/profiles/new', {
             profileName,
             description,
             favFoods,
